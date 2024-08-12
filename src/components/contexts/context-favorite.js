@@ -1,5 +1,5 @@
 import { createContext } from "react";
 
-const AdoptedPetContext = createContext();
+const ContextFavorite = createContext(undefined, undefined);
 
-export default AdoptedPetContext;
+export default ContextFavorite;

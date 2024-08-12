@@ -36,6 +36,7 @@ body {
   border-radius: 4px;
   border: 1px solid;
   height: calc(84.5vh - 28vh);
+  overflow: clip;
 }
 
 .search {

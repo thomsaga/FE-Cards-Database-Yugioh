@@ -7,7 +7,7 @@ async function fetchQuery({ queryKey }) {
   }
 
   const res = await fetch(
-    `https://db.ygoprodeck.com/api/v7/cardinfo.php?${inputType}num=50&offset=0`,
+    `https://db.ygoprodeck.com/api/v7/cardinfo.php?${inputType}num=25&offset=0`,
   );
 
   if (!res.ok) {

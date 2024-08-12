@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import fetchCard from "../components/fetchs/fetch-detail.js";
 import { TbLoader, TbStar, TbStarFilled } from "react-icons/tb";
 import Modal from "../components/Modal.jsx";
+import ContextFavorite from "../components/contexts/context-favorite.js";
 
 const Detail = () => {
   const navigate = useNavigate();
   const params = useParams();
+  const [, setFavoriteCard] = useContext(ContextFavorite);
   const [showModal, setShowModal] = useState(false);
   const results = useQuery(["Detail", params.id], fetchCard);
 
@@ -34,6 +36,7 @@ const Detail = () => {
           <button
             className="star-button"
             onClick={() => {
+              setFavoriteCard(card);
               setShowModal(true);
             }}
           >
