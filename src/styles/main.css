@@ -273,6 +273,39 @@ body {
   text-align: justify;
 }
 
+.error {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25vw;
+  height: 30vh;
+  margin-top: 3rem;
+  border-radius: 1rem;
+  background-color: #fbf6f6;
+}
+
+.error h2 {
+  margin: 0;
+  padding: 0;
+  line-height: 1.2;
+  text-align: center;
+  font-size: 2rem;
+  color: crimson;
+}
+
+.error button {
+  margin-top: 2rem;
+  background-color: #3483ad;
+  padding: 5px 25px;
+  color: white;
+  font-size: 18px;
+  border: #333 1px solid;
+  border-radius: 5px;
+  display: block;
+  cursor: pointer;
+}
+
 .search-params button,
 #modal button,
 #modal a,
@@ -348,11 +381,6 @@ body {
   justify-content: center;
   display: flex;
   padding: 15px;
-}
-
-form .pet {
-  float: unset;
-  margin: 0 auto;
 }
 
 .loader {

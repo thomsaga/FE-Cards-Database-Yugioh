@@ -5,6 +5,7 @@ import fetchCard from "../components/fetchs/fetch-detail.js";
 import { TbLoader, TbStar, TbStarFilled } from "react-icons/tb";
 import Modal from "../components/Modal.jsx";
 import ContextFavorite from "../components/contexts/context-favorite.js";
+import ErrorBoundary from "../components/ErrorBoundary.jsx";
 
 const Detail = () => {
   const navigate = useNavigate();
@@ -92,4 +93,10 @@ const Detail = () => {
   );
 };
 
-export default Detail;
+export default function DetailsErrorBoundary(props) {
+  return (
+    <ErrorBoundary>
+      <Detail {...props} />
+    </ErrorBoundary>
+  );
+}
