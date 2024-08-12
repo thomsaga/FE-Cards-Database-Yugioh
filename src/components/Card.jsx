@@ -6,7 +6,7 @@ const Card = ({ id, name, type, card_images }) => {
   console.log("Card Props:", { id, name, type, card_images }); // Log props yang diterima
   return (
     <Link
-      to={`/details/${id}`}
+      to={`/detail/${id}`}
       style={{ textDecoration: "none", color: "inherit" }}
     >
       <div className="result-span">

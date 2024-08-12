@@ -1,12 +1,13 @@
 async function fetchQuery({ queryKey }) {
   const { type } = queryKey[1];
+  const inputType = `type=${type}&`;
 
   if (!type) {
     return [];
   }
 
   const res = await fetch(
-    `https://db.ygoprodeck.com/api/v7/cardinfo.php?type=${type}&num=15&offset=0`,
+    `https://db.ygoprodeck.com/api/v7/cardinfo.php?${inputType}num=50&offset=0`,
   );
 
   if (!res.ok) {

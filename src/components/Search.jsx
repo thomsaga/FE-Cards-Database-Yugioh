@@ -8,7 +8,6 @@ const Search = () => {
   const [search, setSearch] = useState({ type: "" });
   const { data, error, isLoading } = useQuery(["search", search], fetchSearch);
 
-  // Ambil data kartu dari `data.cards`
   const cards = useMemo(() => data ?? [], [data]);
 
   useEffect(() => {
@@ -19,6 +18,7 @@ const Search = () => {
 
   return (
     <>
+      <div className="favorite"></div>
       <div className="search">
         <form
           onSubmit={(e) => {

@@ -23,28 +23,36 @@ body {
 .container {
   display: flex;
   flex-direction: row;
-  justify-content: center; /* Pusatkan elemen secara horizontal */
-  align-items: flex-start; /* Pusatkan elemen secara vertikal */
+  justify-content: center;
+  align-items: flex-start;
   padding: 0 20px 20px 20px;
-  box-sizing: border-box; /* Pastikan padding dihitung dalam lebar/tinggi elemen */
+  box-sizing: border-box;
+}
+
+.favorite {
+  display: flex;
+  margin-right: 0.5rem;
+  width: 25%;
+  border-radius: 4px;
+  border: 1px solid;
+  height: calc(84.5vh - 28vh);
 }
 
 .search {
   display: flex;
   flex-wrap: wrap;
-  width: 100%; /* Lebar penuh dari kontainer */
-  max-width: 35vw; /* Batasi lebar maksimal sesuai kebutuhan */
-  padding: 15px; /* Padding di dalam elemen .search */
-  background-color: #353638; /* Warna latar belakang agar kontras dengan halaman */
-  border-radius: 4px; /* Sudut membulat */
+  width: 25%;
+  height: calc(84.5vh - 28vh);
+  max-width: 35vw;
+  padding: 15px;
+  background-color: #353638;
+  border-radius: 4px;
   border: 1px solid;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan halus untuk efek kedalaman */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .search label {
   display: inline-block;
-  /*margin-left: 5px;*/
-  /*margin-right: 5px;*/
   margin-bottom: 15px;
   font-size: 1.2rem;
   color: #333;
@@ -53,75 +61,71 @@ body {
 .search select {
   display: block;
   width: 100%;
-  padding: 10px 50px 10px 10px; /* Extra padding on the right for the arrow */
+  padding: 10px 50px 10px 10px;
   font-size: 1rem;
   border: 1px solid #ddd;
   border-radius: 4px;
   background-color: #212528;
   background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"%3E%3Cpath d="M7 10l5 5 5-5z" fill="%23fff"/%3E%3C/svg%3E'); /* White arrow */
   background-repeat: no-repeat;
-  background-position: right 15px center; /* Adjust position for larger arrow */
-  background-size: 24px 24px; /* Adjust size of the arrow */
-  appearance: none; /* Remove default arrow */
+  background-position: right 15px center;
+  background-size: 24px 24px;
+  appearance: none;
 }
 
-/* Style untuk elemen select */
 .custom-select {
-  background-color: #333; /* Warna latar belakang untuk elemen select */
-  color: white; /* Warna teks default untuk elemen select */
-  border: 1px solid #888; /* Tambahkan border jika perlu */
-  padding: 5px; /* Tambahkan padding jika perlu */
-  border-radius: 4px; /* Tambahkan border-radius jika perlu */
+  background-color: #333;
+  color: white;
+  border: 1px solid #888;
+  padding: 5px;
+  border-radius: 4px;
 }
 
-/* Style untuk elemen option yang dipilih */
 .custom-select option:checked {
-  background-color: #555; /* Warna latar belakang ketika dipilih */
-  color: white; /* Warna teks ketika dipilih */
+  background-color: #555;
+  color: white;
 }
 
 .result {
   display: flex;
   flex-direction: column;
-  width: 100%;
-  max-width: 65vw; /* Consistent with the search box width */
+  width: 80%;
+  max-width: 65vw;
   max-height: 84.5vh;
   padding: 2px;
-  margin-left: 20px;
-  background-color: #353638; /* Consistent background color */
-  border-radius: 4px; /* Consistent border radius */
-  border: 2px solid #ddd; /* Consistent border style */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Consistent shadow */
-  overflow: auto; /* Space above the result box */
+  margin-left: 1.5rem;
+  background-color: #353638;
+  border-radius: 4px;
+  border: 2px solid #ddd;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  overflow: auto;
 }
 
 .no-cards-message {
   text-align: center;
 }
 
-/* Gaya scrollbar untuk WebKit browsers (Chrome, Safari, Edge) */
 .result::-webkit-scrollbar {
-  width: 12px; /* Lebar scrollbar */
+  width: 12px;
 }
 
 .result::-webkit-scrollbar-track {
-  background: #2a2d2e; /* Warna latar belakang track scrollbar */
-  border-radius: 8px; /* Radius sudut track scrollbar */
+  background: #2a2d2e;
+  border-radius: 8px;
 }
 
 .result::-webkit-scrollbar-thumb {
-  background: #555; /* Warna thumb scrollbar */
-  border-radius: 8px; /* Radius sudut thumb scrollbar */
+  background: #555;
+  border-radius: 8px;
 }
 
 .result::-webkit-scrollbar-thumb:hover {
-  background: #777; /* Warna thumb scrollbar saat hover */
+  background: #777;
 }
 
-/* Gaya scrollbar untuk Firefox */
 .result {
-  scrollbar-width: thin; /* Lebar scrollbar */
-  scrollbar-color: #555 #2a2d2e; /* Warna thumb dan track scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: #555 #2a2d2e;
 }
 
 .result-span {
@@ -145,7 +149,7 @@ body {
 }
 
 .result-span:hover img {
-  transform: scale(1.07); /* Membesarkan gambar sedikit */
+  transform: scale(1.07);
 }
 
 .result-desc-span {
@@ -167,165 +171,112 @@ body {
   line-height: 1;
 }
 
-.details {
-  width: 1100px;
-  margin: 0 auto;
-  padding: 15px;
-  margin-bottom: 25px;
-  border-radius: 6px;
-  background: #faeff0;
-  box-shadow:
-    0px 0px 12px #aaa,
-    -0px -0px 12px #fff;
-}
-
-.pet {
-  width: 100%;
-  height: 130px;
-  display: block;
-  overflow: hidden;
-  margin: 25px 0;
-  border-bottom: #333 2px solid;
-}
-
-.pet img {
-  width: 100px;
-  min-height: 100px;
-}
-
-.info {
-  float: left;
-  width: 80%;
-  height: 100px;
-  padding-top: 10px;
-  flex-direction: column;
-  justify-content: space-around;
-}
-
-.image-container {
-  clip-path: circle(50% at 50% 50%);
-  width: 100px;
-  height: 100px;
-  float: left;
-  margin: 0px 20px 0px 10px;
-}
-
-.pet h1 {
-  white-space: nowrap;
-  font-weight: normal;
-  font-size: 30px;
-  color: #333;
-  width: 95%;
-  overflow: hidden;
-  margin: 0;
-  text-overflow: ellipsis;
-}
-
-header > a,
-#roots > div > h1 {
-  display: inline-block;
-  background-image: url(https://cdn.discordapp.com/attachments/1106153008317866077/1269843694983319633/Pet_Animal_Care_Logo.png?ex=66b18999&is=66b03819&hm=3c9a7c8623c39a3b93f65342429a75144a8cede707fe12557617d64ea6bbba56&);
-  filter: brightness(150%);
-  width: 279px;
-  height: 76px;
-  overflow: hidden;
-  text-indent: -9999px;
-  margin: 20px 0;
-}
-
-.pet h2 {
-  white-space: nowrap;
-  font-weight: normal;
-  font-size: 20px;
-  margin: 0;
-  text-overflow: ellipsis;
-}
-
-header a {
-  color: #333;
-  font-size: 3px;
-  text-decoration: none;
-  font-weight: bold;
-  display: block;
-  padding-bottom: 10px;
-}
-
-header {
+.detail {
   display: flex;
-  align-content: center;
+  flex-direction: row;
   justify-content: center;
-  width: 1100px;
-  margin: 0 auto;
-  padding: 20px 0px 0px 0px;
-}
-
-.details p {
-  line-height: 1.5;
-  padding: 0px 15px;
-}
-
-.details h1 {
-  text-align: center;
-  color: #333;
-  font-size: 60px;
-  margin: 5px 0px;
-}
-
-.details h2 {
-  text-align: center;
-  margin: 5px 0px 20px 0px;
-}
-
-.carousel {
-  display: flex;
-  justify-content: space-around;
   align-items: center;
-  height: 400px;
-  margin-top: 8px;
+  width: 85%;
+  max-width: 70vw;
+  height: 70vh;
+  padding: 2px;
+  margin-top: 20px;
+  /*background-color: #353638;*/
+  border-radius: 1rem;
+  /*border: 1px solid #ddd;*/
+  /*box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);*/
+  overflow: clip;
 }
 
-.carousel > img {
-  max-width: 45%;
-  max-height: 400px;
+.detail img {
+  display: flex;
+  padding: 0;
+  width: 19.5rem;
+  height: 28rem;
+  border-radius: 0.5rem;
+  box-shadow: 8px 0 5px rgba(0, 0, 0, 0.5);
+  /*border: 2px solid #ddd;*/
 }
 
-.carousel-smaller {
-  width: 50%;
-}
-
-.carousel-smaller > img {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
+.detail-session {
+  margin-left: 2rem;
+  /*height: 60vh;*/
+  width: 55vw;
   display: inline-block;
-  margin: 15px;
+  border-radius: 0.5rem;
+  /*border: 2px solid #67677a;*/
+  /*overflow: clip;*/
+}
+
+.star-button {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 2px solid #67677a;
+  border-radius: 1rem;
+  margin-bottom: 0.7rem;
   cursor: pointer;
-  border: 2px solid #333;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #151515;
+  position: relative;
+  outline: none;
 }
 
-.carousel-smaller > img.active {
-  border-color: #333;
-  opacity: 0.6;
+.star-icon {
+  position: absolute;
+  color: whitesmoke;
+  font-size: 25px;
 }
 
-.search-params label {
-  display: block;
-  width: 60px;
+.star-icon-hover {
+  color: whitesmoke;
+  opacity: 0;
+  transition: opacity 0.3s;
 }
 
-.search-params input,
-.search-params select {
-  margin-bottom: 30px;
-  font-size: 18px;
-  height: 30px;
-  width: 325px;
+.star-button:hover .star-icon-hover {
+  opacity: 1;
+}
+
+.star-button:hover .star-icon-default {
+  opacity: 0;
+}
+
+.detail-desc {
+  height: 55vh;
+  /*width: 55vw;*/
+  /*display: inline-block;*/
+  border-radius: 0.5rem;
+  border: 2px solid #67677a;
+  overflow: clip;
+}
+
+.detail-desc h1 {
+  margin: 0;
+  font-size: 1.7rem;
+  line-height: 1;
+  text-align: center;
+}
+
+.detail-desc h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.detail-desc p {
+  margin: 0;
+  font-size: 1.05rem;
+  line-height: 1.3;
+  text-align: justify;
 }
 
 .search-params button,
 #modal button,
 #modal a,
 .details button {
-  background-color: #ad343e;
+  background-color: #44ad34;
   padding: 5px 25px;
   color: white;
   font-size: 18px;
@@ -367,105 +318,28 @@ header {
   align-items: center;
 }
 
+#modal h1 {
+  font-size: 2rem;
+  color: #212528;
+}
+
 #modal:empty {
   display: none;
 }
 
 #modal > div {
+  width: 30vw;
+  height: 25vh;
   background-color: white;
   max-width: 500px;
   padding: 15px;
   text-align: center;
-  border-radius: 30px;
-  background: #faeff0;
+  border-radius: 1rem;
 }
 
 #modal .buttons button {
   display: inline-block;
   margin-right: 15px;
-}
-
-@media only screen and (max-width: 1129px) {
-  header {
-    display: flex;
-    align-content: center;
-    justify-content: center;
-    width: 95%;
-    margin: 0 auto;
-    padding: 20px 0px 0px 0px;
-  }
-
-  .search-params {
-    width: 95%;
-  }
-
-  .search-params form {
-    margin-bottom: 20px;
-  }
-
-  .search {
-    width: 55%;
-    padding: 15px;
-    border-radius: 9px;
-    float: left;
-    margin-bottom: 25px;
-  }
-
-  .details {
-    width: 95%;
-    margin: 0 auto;
-    padding: 15px;
-    border-radius: 9px;
-    margin-bottom: 25px;
-  }
-
-  .info {
-    width: 65%;
-  }
-
-  .info h1 {
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .info h2 {
-    width: 100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-}
-
-@media only screen and (max-width: 945px) {
-  .search-params {
-    width: 95%;
-  }
-
-  .search {
-    width: 100%;
-  }
-}
-
-@media only screen and (max-width: 600px) {
-  .pet {
-    height: 200px;
-  }
-
-  .info {
-    width: 100%;
-    text-align: center;
-  }
-
-  .image-container {
-    margin: 0 auto;
-    float: none;
-  }
-  .carousel-smaller > img {
-    width: 60px;
-    height: 60px;
-  }
 }
 
 .loading-pane {
