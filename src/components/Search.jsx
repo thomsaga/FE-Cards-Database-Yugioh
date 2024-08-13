@@ -2,11 +2,11 @@ import React, { useContext, useEffect, useMemo, useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import fetchSearch from "./fetchs/fetch-search.js";
 import Results from "./Result.jsx";
-import { TYPES } from "./constans/constan-types.js";
+import { TYPES, ATTRS, RACES } from "./constans/constan-types.js";
 import ContextFavorite from "./contexts/context-favorite.js";
 
 const Search = () => {
-  const [search, setSearch] = useState({ type: "" });
+  const [search, setSearch] = useState({ type: "", attribute: "", race: "" });
   const [favoriteCard] = useContext(ContextFavorite);
   const { data, error, isLoading } = useQuery(["search", search], fetchSearch);
 
@@ -39,7 +39,9 @@ const Search = () => {
             src={favoriteCard.card_images[0].image_url_small}
             alt={`image_small_${favoriteCard.name}`}
           />
-        ) : null}
+        ) : (
+          <h2>Favorite Card</h2>
+        )}
       </div>
       <div className="search">
         <form
@@ -48,6 +50,8 @@ const Search = () => {
             const formData = new FormData(e.target);
             const obj = {
               type: formData.get("type") ?? "",
+              attribute: formData.get("attribute") ?? "",
+              race: formData.get("race") ?? "",
             };
             console.log("Search Query:", obj); // Debugging
             setSearch(obj);
@@ -63,7 +67,32 @@ const Search = () => {
               ))}
             </select>
           </label>
-          <button type="submit">Submit</button>
+
+          <label htmlFor="attribute">
+            <select id="attribute" name="attribute" className="custom-select">
+              <option value="">Select Attribute</option>
+              {ATTRS.map((attribute) => (
+                <option key={attribute} value={attribute}>
+                  {attribute}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <label htmlFor="race">
+            <select id="race" name="race" className="custom-select">
+              <option value="">Select Race</option>
+              {RACES.map((race) => (
+                <option key={race} value={race}>
+                  {race}
+                </option>
+              ))}
+            </select>
+          </label>
+
+          <button className="submit-button" type="submit">
+            Submit
+          </button>
         </form>
       </div>
       {isLoading ? (
@@ -71,7 +100,12 @@ const Search = () => {
           <h1 className="no-cards-message">Loading...</h1>
         </div>
       ) : error ? (
-        <div className="error">Error: {error.message}</div>
+        <div className="result">
+          {" "}
+          <h1 className="no-cards-message" style={{ color: "crimson" }}>
+            Error: {error.message}
+          </h1>
+        </div>
       ) : (
         <Results cards={cards} />
       )}

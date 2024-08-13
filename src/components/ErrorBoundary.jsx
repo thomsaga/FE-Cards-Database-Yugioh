@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { useNavigate } from "react-router-dom";
+import { TfiFaceSad } from "react-icons/tfi";
 
 class ErrorBoundary extends Component {
   state = { hasError: false };
@@ -37,6 +38,7 @@ const ErrorFallback = () => {
   return (
     <div className="container">
       <div className="error">
+        <TfiFaceSad />
         <h2>AN ERROR OCCURRED!</h2>
         <div className="buttons">
           <button onClick={() => navigate("/")}>HOME</button>

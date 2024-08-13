@@ -10,9 +10,12 @@ import ErrorBoundary from "../components/ErrorBoundary.jsx";
 const Detail = () => {
   const navigate = useNavigate();
   const params = useParams();
-  const [, setFavoriteCard] = useContext(ContextFavorite);
+  const [favoriteCard, setFavoriteCard] = useContext(ContextFavorite);
   const [showModal, setShowModal] = useState(false);
   const results = useQuery(["Detail", params.id], fetchCard);
+
+  const card = results.data?.[0];
+  // card.card_images[0].image_url = undefined;
 
   if (results.isLoading) {
     return (
@@ -24,25 +27,32 @@ const Detail = () => {
     );
   }
 
-  console.log("Detail Data: ", results.data);
-  const card = results.data[0];
+  const isFavorite = favoriteCard?.id === card.id;
+  const handleFavoriteClick = () => {
+    if (isFavorite) {
+      setFavoriteCard(null);
+    } else {
+      setFavoriteCard(card);
+      setShowModal(true);
+    }
+  };
 
   return (
     <div className="container">
       <div className="detail">
         <div className="detail-img">
-          <img src={card.card_images[0].image_url} alt={`image_full_${name}`} />
+          <img
+            src={card.card_images[0].image_url}
+            alt={`image_full_${card.name}`}
+          />{" "}
         </div>
         <div className="detail-session">
-          <button
-            className="star-button"
-            onClick={() => {
-              setFavoriteCard(card);
-              setShowModal(true);
-            }}
-          >
-            <TbStar className="star-icon star-icon-default" />
-            <TbStarFilled className="star-icon star-icon-hover" />
+          <button className="star-button" onClick={handleFavoriteClick}>
+            {isFavorite ? (
+              <TbStarFilled className="star-icon" />
+            ) : (
+              <TbStar className="star-icon" />
+            )}
           </button>
           {showModal ? (
             <Modal>

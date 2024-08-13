@@ -1,3 +1,5 @@
+import React from "react";
+
 export const TYPES = [
   "Spell Card",
   "Trap Card",
@@ -25,4 +27,51 @@ export const TYPES = [
   "Link Monster",
   "Pendulum Flip Effect Monster",
   "Pendulum Effect Fusion Monster",
+];
+
+export const ATTRS = [
+  "Dark",
+  "Earth",
+  "Fire",
+  "Light",
+  "Water",
+  "Wind",
+  "Divine",
+];
+
+export const RACES = [
+  "Continuous",
+  "Zombie",
+  "Fiend",
+  "Normal",
+  "Quick-play",
+  "Rock",
+  "Warrior",
+  "Winged beast",
+  "Spellcaster",
+  "Beast",
+  "Fairy",
+  "Equip",
+  "Field",
+  "Fish",
+  "Beast-warrior",
+  "Thunder",
+  "Machine",
+  "Sea serpent",
+  "Aqua",
+  "Plant",
+  "Dragon",
+  "Reptile",
+  "Counter",
+  "Psychic",
+  "Insect",
+  "Pyro",
+  "Dinosaur",
+  "Wyrm",
+  "Cyberse",
+  "Illusion",
+  "Ritual",
+  "Divine-beast",
+  "Creator-god",
+  "Cyverse",
 ];

@@ -31,12 +31,19 @@ body {
 
 .favorite {
   display: flex;
+  justify-content: center;
+  align-items: center;
   margin-right: 0.5rem;
   width: 25%;
-  border-radius: 4px;
-  border: 1px solid;
+  border-radius: 6px;
+  border: 1px solid #67677a;
   height: calc(84.5vh - 28vh);
   overflow: clip;
+}
+
+.favorite img {
+  width: 100%;
+  height: 100%;
 }
 
 .search {
@@ -53,6 +60,7 @@ body {
 }
 
 .search label {
+  width: 100%;
   display: inline-block;
   margin-bottom: 15px;
   font-size: 1.2rem;
@@ -60,7 +68,7 @@ body {
 }
 
 .search select {
-  display: block;
+  display: flex;
   width: 100%;
   padding: 10px 50px 10px 10px;
   font-size: 1rem;
@@ -75,6 +83,8 @@ body {
 }
 
 .custom-select {
+  display: flex;
+  width: 100%;
   background-color: #333;
   color: white;
   border: 1px solid #888;
@@ -85,6 +95,31 @@ body {
 .custom-select option:checked {
   background-color: #555;
   color: white;
+}
+
+.submit-button {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+  margin: 2px 2px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition:
+    background-color 0.3s,
+    transform 0.2s;
+}
+
+.submit-button:hover {
+  background-color: #45a049; /* Slightly darker green on hover */
+}
+
+.submit-button:active {
+  transform: scale(0.98); /* Slight shrink effect when clicked */
 }
 
 .result {
@@ -230,27 +265,30 @@ body {
   font-size: 25px;
 }
 
-.star-icon-hover {
-  color: whitesmoke;
-  opacity: 0;
-  transition: opacity 0.3s;
-}
-
-.star-button:hover .star-icon-hover {
-  opacity: 1;
-}
-
-.star-button:hover .star-icon-default {
-  opacity: 0;
-}
-
 .detail-desc {
   height: 55vh;
-  /*width: 55vw;*/
-  /*display: inline-block;*/
   border-radius: 0.5rem;
   border: 2px solid #67677a;
-  overflow: clip;
+  overflow: auto;
+}
+
+.detail-desc::-webkit-scrollbar {
+  width: 7px;
+  height: auto;
+}
+
+.detail-desc::-webkit-scrollbar-track {
+  background: #1c1c1c;
+  border-radius: 10px;
+}
+
+.detail-desc::-webkit-scrollbar-thumb {
+  background: #636363;
+  border-radius: 10px;
+}
+
+.detail-desc::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }
 
 .detail-desc h1 {
@@ -267,7 +305,8 @@ body {
 }
 
 .detail-desc p {
-  margin: 0;
+  margin: 0; /* Menghapus margin default dari paragraf */
+  overflow: auto; /* Membuat paragraf scrollable jika perlu */
   font-size: 1.05rem;
   line-height: 1.3;
   text-align: justify;
@@ -280,22 +319,26 @@ body {
   align-items: center;
   width: 25vw;
   height: 30vh;
-  margin-top: 3rem;
+  padding-top: 0.5rem;
+  margin-top: 7rem;
   border-radius: 1rem;
-  background-color: #fbf6f6;
+  background-color: #191919;
+  font-size: 5rem;
+  color: crimson;
+  border: 1px solid;
 }
 
 .error h2 {
-  margin: 0;
+  margin-top: 0.2rem;
   padding: 0;
   line-height: 1.2;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   color: crimson;
 }
 
 .error button {
-  margin-top: 2rem;
+  margin-top: 0.2rem;
   background-color: #3483ad;
   padding: 5px 25px;
   color: white;
